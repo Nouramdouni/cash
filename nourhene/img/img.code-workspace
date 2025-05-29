@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "img",
+			"path": "."
+		},
+		{
+			"name": "nourhene",
+			"path": "../nourhene"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "nourhene"
+	}
+}
