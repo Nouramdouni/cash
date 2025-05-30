@@ -1,0 +1,31 @@
+
+🔵 Carte Visa (commence par 4, 16 chiffres)
+visa :4532 7589 2345 6781
+🟣 Carte Mastercard (commence par 51–55 ou 2221–2720, 16 chiffres)
+5354 6789 0123 4567
+2222 4000 7000 0005
+
+🟠 Carte Amex (commence par 34 ou 37, 15 chiffres)
+3782 822463 10005
+3400 000000 00009
+🔴 Numéro invalide (mauvais préfixe ou longueur incorrecte)
+6011 1234 5678 9012  
+1234 5678 9012 3456  
+
+ Pour "Nom sur la carte" (cardholder) :
+Jean Dupont ✅ (valide)
+
+Marie-Claire Lemoine ✅ (valide)
+
+A ❌ (trop court)
+
+12345 ❌ (ne doit pas contenir de chiffres)
+ Pour "Adresse de facturation" (billing_address) :
+10 Rue de la Paix, 75002 Paris ✅ (valide)
+
+32 Avenue Habib Bourguiba, Tunis ✅ (valide)
+
+?? ❌ (pas une adresse)
+
+Rue ❌ (trop vague)
+
