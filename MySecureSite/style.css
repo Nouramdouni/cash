@@ -5,7 +5,11 @@
         padding: 1%;
         /* centrer horizontalement */
     }
-
+.card-image {
+  margin-top: 10px;
+  height: 120px; /* make this larger */
+  width: auto;   /* keep the width proportional to the image */
+}
     .h1 {
         text-align: center;
         color: #0d0d0e;
